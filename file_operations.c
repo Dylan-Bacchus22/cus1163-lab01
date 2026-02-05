@@ -23,23 +23,23 @@ int create_and_write_file(const char *filename, const char *content) {
         return -1;
     }
     // TODO: Print the file descriptor value.
-    printf("File descriptor: %d"\n, fd);
+    printf("File descriptor: %d\n", fd);
     // TODO: Write the content to the file using the write() system call.
     bytes_written = write(fd, content,  strlen(content));
     // TODO: Use the length of 'content' as the size to write.
     // TODO: Check if write() failed (bytes_written == -1). If so, print an error using perror, close the file, and return -1.
     if(bytes_written == -1){
         perror("Write failed.");
-        return -1
+        return -1;
     }
     // TODO: Print a success message with the number of bytes written and the filename.
-    printf("Successfully wrote %d to '%s'\n", byteswritten, filename);
+    printf("Successfully wrote %d to '%s'\n", bytes_written, filename);
     // TODO: Close the file using close(fd).
     close(fd);
     // TODO: Check if close() failed. If so, print an error using perror and return -1.
     if(close(fd) == -1){
         perror("close");
-        return -1
+        return -1;
     }
     // TODO: Print a message that the file was closed successfully.
     printf("File closed successfully");
@@ -60,17 +60,17 @@ int read_file_contents(const char *filename) {
     // TODO: Use the O_RDONLY flag.
     // TODO: Check if open() failed (fd == -1). If so, print an error using perror and return -1.
     if(fd == -1){
-        perror("Open Failed.")
-        return -1
+        perror("Open Failed.");
+        return -1;
     }
-    print("File Descriptor: %d\n", fd);
+    printf("File Descriptor: %d\n", fd);
     // TODO: Print the file descriptor value.
     // TODO: Print a header for the file contents.
     printf("--- Contents of '%s' ---\n", filename);
     // TODO: Read the file contents using the read() system call in a loop.
     while(bytes_read = read(fd, buffer, sizeof(buffer) - 1) > 0){
         buffer[bytes_read] = '\0';
-        printf(buffer);
+        printf("%s", buffer);
     }
     // TODO: Use sizeof(buffer) - 1 for the buffer size.
     // TODO: Null-terminate the buffer after each read.
