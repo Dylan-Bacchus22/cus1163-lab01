@@ -38,11 +38,11 @@ int create_and_write_file(const char *filename, const char *content) {
     
     // TODO: Check if close() failed. If so, print an error using perror and return -1.
     if(close(fd) == -1){
-        perror("close");
+        perror("Close failed");
         return -1;
     }
     // TODO: Print a message that the file was closed successfully.
-    printf("File closed successfully");
+    printf("\nFile closed successfully\n");
     return 0;
 }
 
@@ -68,7 +68,7 @@ int read_file_contents(const char *filename) {
     // TODO: Print a header for the file contents.
     printf("--- Contents of '%s' ---\n", filename);
     // TODO: Read the file contents using the read() system call in a loop.
-    while(bytes_read = read(fd, buffer, sizeof(buffer) - 1) > 0){
+    while((bytes_read = read(fd, buffer, sizeof(buffer) - 1)) > 0){
         buffer[bytes_read] = '\0';
         printf("%s", buffer);
     }
@@ -83,7 +83,7 @@ int read_file_contents(const char *filename) {
         return -1;
     }
     // TODO: Print a footer for the end of the file.
-    printf("--- End of file ---");
+    printf("\n--- End of file ---\n");
     // TODO: Close the file using close(fd).
    
     // TODO: Check if close() failed. If so, print an error using perror and return -1.
@@ -92,6 +92,6 @@ int read_file_contents(const char *filename) {
         return -1;
     }
     // TODO: Print a message that the file was closed successfully.
-    printf("File closed successfully");
+    printf("\nFile closed successfully\n");
     return 0;
 }
