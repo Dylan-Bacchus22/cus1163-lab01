@@ -33,9 +33,9 @@ int create_and_write_file(const char *filename, const char *content) {
         return -1;
     }
     // TODO: Print a success message with the number of bytes written and the filename.
-    printf("Successfully wrote %ld to '%s'\n", bytes_written, filename);
+    printf("Successfully wrote %ld bytes to '%s'\n", bytes_written, filename);
     // TODO: Close the file using close(fd).
-    close(fd);
+    
     // TODO: Check if close() failed. If so, print an error using perror and return -1.
     if(close(fd) == -1){
         perror("close");
@@ -85,7 +85,7 @@ int read_file_contents(const char *filename) {
     // TODO: Print a footer for the end of the file.
     printf("--- End of file ---");
     // TODO: Close the file using close(fd).
-    close(fd);
+   
     // TODO: Check if close() failed. If so, print an error using perror and return -1.
     if(close(fd) == -1){
         perror("Close failed.");
