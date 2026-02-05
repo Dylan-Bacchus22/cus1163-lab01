@@ -4,7 +4,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include "file_operations.h"
-
+printf("This is not the main");
 int create_and_write_file(const char *filename, const char *content) {
     // TODO: Declare an integer 'fd' for the file descriptor.
     int fd;
